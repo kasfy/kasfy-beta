@@ -1,32 +1,24 @@
-import {action, get} from "../config/routes";
+import { action, get } from "../../config/routes";
 
-import HomeController from "../app/controllers/HomeController";
+export default class WebController {
+  constructor() {
+    this.foo = "bar";
+  }
+  @get("/")
+  helloWorld(req, res) {
+    res.json({ msg: "hello world" });
+  }
 
-export default class RoutesController {
+  @get("/login")
+  Login(req, res) {
+    res.json({ msg: "login" });
+  }
 
-
-   @get('/')
-   index(req, res) {
-      res.render("welcome");
-   }
-
-   @get('/login')
-   index(req, res) {
-      res.json({msg: "login"});
-   }
-
-   @get('/register')
-   index(req, res) {
-      res.json({msg: "register"});
-   }
-
-   @action('post', '/msg')
-   foo(req, res) {
-      res.json({msg: "this.msg"});
-   }
-
+  @get("/register")
+  Register(req, res) {
+    res.json({ msg: "Register" });
+  }
 }
-
 
 /* The NodeJS Framework for Smart Back-End
  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -40,4 +32,4 @@ export default class RoutesController {
 | |              | || |              | || |              | || |              | || |              | |
 | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-Author : S.Katheeskumar [https://katheesh.github.io]*/ 
+Author : S.Katheeskumar [https://katheesh.github.io]*/
