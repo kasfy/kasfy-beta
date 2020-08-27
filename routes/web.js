@@ -10,6 +10,16 @@ export default class RoutesController {
       res.render("welcome");
    }
 
+   @get('/login')
+   index(req, res) {
+      res.json({msg: "login"});
+   }
+
+   @get('/register')
+   index(req, res) {
+      res.json({msg: "register"});
+   }
+
    @action('post', '/msg')
    foo(req, res) {
       res.json({msg: "this.msg"});
