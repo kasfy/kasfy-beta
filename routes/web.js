@@ -1,8 +1,9 @@
-import { action, get } from "../../config/routes";
+import { action, get } from "../config/routes";
+import HomeController from "../app/controllers/HomeController";
 
 export default class WebController {
   constructor() {
-    this.foo = "bar";
+    this.home = new HomeController();
   }
   @get("/")
   helloWorld(req, res) {
@@ -17,6 +18,11 @@ export default class WebController {
   @get("/register")
   Register(req, res) {
     res.json({ msg: "Register" });
+  }
+
+  @get("/home")
+  Home(req, res) {
+    res.json({ msg: this.home.home() });
   }
 }
 

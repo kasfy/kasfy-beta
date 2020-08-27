@@ -1,11 +1,10 @@
 import express from "express";
 import env from "dotenv";
-import WebController from "./controllers/WebController";
 
 import { routes } from "../config/routes";
 
-
 import api from "../routes/api";
+import web from "../routes/web";
 
 // Create our Express application
 var app = express();
@@ -16,7 +15,7 @@ var publix = __dirname.substring(0, __dirname.length - 3) + "public";
 
 app.use(express.static(publix));
 
-app.use("/", routes(WebController));
+app.use("/", routes(web));
 
 app.use("/api", routes(api));
 
