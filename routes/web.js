@@ -2,28 +2,31 @@ import { action, get } from "../config/routes";
 import HomeController from "../app/controllers/HomeController";
 
 export default class WebController {
-  constructor() {
-    this.home = new HomeController();
-  }
-  @get("/")
-  helloWorld(req, res) {
-    res.json({ msg: "hello world" });
-  }
 
-  @get("/login")
-  Login(req, res) {
-    res.json({ msg: "login" });
-  }
+  	constructor() {
+    	this.home = new HomeController();
+  	}
 
-  @get("/register")
-  Register(req, res) {
-    res.json({ msg: "Register" });
-  }
+  	@get("/")
+  	welcome(req, res) {
+  		this.home.welcome(req, res);
+  	}
 
-  @get("/home")
-  Home(req, res) {
-    res.json({ msg: this.home.home() });
-  }
+  	@get("/login")
+  	Login(req, res) {
+    	res.json({ msg: "login" });
+  	}
+
+  	@get("/register")
+  	Register(req, res) {
+    	res.json({ msg: "Register" });
+  	}
+
+  	@get("/home")
+  	Home(req, res) {
+    	//res.json({ msg: this.home.home() });
+    	res.render(this.home.home());
+  	}
 }
 
 /* The NodeJS Framework for Smart Back-End
