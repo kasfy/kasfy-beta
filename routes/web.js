@@ -36,13 +36,13 @@ export default class WebController {
 		this.auth.register(req, res);
 	}
 
-	@post("/signin")
-	Signin(req, res) { 
-		this.auth.signin(req, res);
-	}
+	@action('post', '/login')
+   	Signin(req, res) {
+        this.auth.signin(req, res);
+   	}
 
-	@post("/signup")
-	Signup(req, res) {
-
+	@action('post', "/register")
+	Signup(req, res) { 
+		this.auth.signup(req, res);
 	}
 }
