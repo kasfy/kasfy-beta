@@ -9,40 +9,49 @@
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
   ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
 
-import { action, get, post, put } from "../config/routes";
+export default class AuthController {
 
-import HomeController from "../app/controllers/HomeController";
-import AuthController from "../app/controllers/auth/AuthController";
+  	constructor() {
+    	//this.foo = "bar";
+  	}
 
-export default class WebController {
+  	login(req, res) {
+    	return res.render("auth/login", {errors:{email:{msg:''},password:{msg:''}}});
+  	} 
 
-	constructor() {
-		this.home = new HomeController();
-		this.auth = new AuthController();
-	}
+  	register(req, res) {
+    	return res.render("auth/register", {errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
+  	}
 
-	@get("/")
-	welcome(req, res) {
-		this.home.welcome(req, res);
-	}
+  	async signin(req, res) {
+  		return res.render("auth/login", {
+		    data: req.body, // { email, password }
+		    errors: {
+		      	email: {
+		        	msg: 'A message is required'
+		      	},
+		      	password: {
+		        	msg: 'That email doesn‘t look right'
+		      	}
+		    }
+		});
+  	}
 
-	@get("/login")
-	Login(req, res) {
-		this.auth.login(req, res);
-	}
+  	async signup(req, res) {
+  		return res.render("auth/register", {
+		    data: req.body, // { email, password }
+		    errors: {
+		      	email: {
+		        	msg: 'A message is required'
+		      	},
+		      	name: {
+		        	msg: 'That email doesn‘t look right'
+		      	},
+		      	password: {
+		        	msg: 'That email doesn‘t look right'
+		      	}
+		    }
+		});
+  	}
 
-	@get("/register")
-	Register(req, res) {
-		this.auth.register(req, res);
-	}
-
-	@action('post', '/login')
-   	Signin(req, res) {
-        this.auth.signin(req, res);
-   	}
-
-	@action('post', "/register")
-	Signup(req, res) { 
-		this.auth.signup(req, res);
-	}
 }

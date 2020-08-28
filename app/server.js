@@ -11,10 +11,8 @@
 
 import express from "express";
 import env from "dotenv";
-
-import {
-	routes
-} from "../config/routes";
+import bodyParser   from 'body-parser';
+import { routes } from "../config/routes";
 
 import api from "../routes/api";
 import web from "../routes/web";
@@ -26,11 +24,25 @@ var port = process.env.PORT || 5050;
 
 var publix = __dirname.substring(0, __dirname.length - 3) + "public";
 
-app.use(express.static(publix));
+const middlewares = [
+  express.static(publix),
+  bodyParser.urlencoded({ extended: true }),
+];
+
+app.use(middlewares);
 
 app.use("/", routes(web));
 
 app.use("/api", routes(api));
+
+app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!");
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 app.set("view engine", "ejs");
 

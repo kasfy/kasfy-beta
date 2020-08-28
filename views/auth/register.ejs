@@ -1,4 +1,18 @@
-/* The NodeJS Framework for Smart Back-End
+<%- include('../layout/header.ejs') %>
+<br>
+<form id='register-form' action="" method='post'>
+  <div class="box">
+    <center><h2>Register here</h2></center>
+    <input type="text" placeholder="Username" required><%= errors.name.msg %>
+    <input type="email" placeholder="Email" required><%= errors.email.msg %>
+    <input type="password" placeholder="Password" required><%= errors.password.msg %>
+    <input type="password" placeholder="Re Password" required>
+    <button type='submit'>Register</button>
+  </div>
+  <center><a href="/login"><label for='form-switch'>Already Member ? Sign In Now..</label></a></center>
+</form>
+
+<!-- /* The NodeJS Framework for Smart Back-End
    ▄█   ▄█▄    ▄████████    ▄████████    ▄████████ ▄██   ▄   
   ███ ▄███▀   ███    ███   ███    ███   ███    ███ ███   ██▄ 
   ███▐██▀     ███    ███   ███    █▀    ███    █▀  ███▄▄▄███ 
@@ -7,42 +21,4 @@
   ███▐██▄     ███    ███          ███   ███        ███   ███ 
   ███ ▀███▄   ███    ███    ▄█    ███   ███        ███   ███ 
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
-  ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
-
-import { action, get, post, put } from "../config/routes";
-
-import HomeController from "../app/controllers/HomeController";
-import AuthController from "../app/controllers/auth/AuthController";
-
-export default class WebController {
-
-	constructor() {
-		this.home = new HomeController();
-		this.auth = new AuthController();
-	}
-
-	@get("/")
-	welcome(req, res) {
-		this.home.welcome(req, res);
-	}
-
-	@get("/login")
-	Login(req, res) {
-		this.auth.login(req, res);
-	}
-
-	@get("/register")
-	Register(req, res) {
-		this.auth.register(req, res);
-	}
-
-	@action('post', '/login')
-   	Signin(req, res) {
-        this.auth.signin(req, res);
-   	}
-
-	@action('post', "/register")
-	Signup(req, res) { 
-		this.auth.signup(req, res);
-	}
-}
+  ▀ Author : S.Katheeskumar [https://katheesh.github.io] */ -->
