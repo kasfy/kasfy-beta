@@ -1,12 +1,9 @@
 export default class HomeController {
+  constructor() {
+    this.foo = "bar";
+  }
 
-   constructor() {
-      this.foo = 'bar';
-   }
- 
-   index(req, res) {
-      res.json( {msg: "hello world"} );
-   }
-
+  home() {
+    return "hello world";
+  }
 }
-

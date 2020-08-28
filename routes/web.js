@@ -1,22 +1,30 @@
-import {action, get} from "../config/routes";
-
+import { action, get } from "../config/routes";
 import HomeController from "../app/controllers/HomeController";
 
-export default class RoutesController {
+export default class WebController {
+  constructor() {
+    this.home = new HomeController();
+  }
+  @get("/")
+  helloWorld(req, res) {
+    res.json({ msg: "hello world" });
+  }
 
+  @get("/login")
+  Login(req, res) {
+    res.json({ msg: "login" });
+  }
 
-   @get('/')
-   index(req, res) {
-      res.render("welcome");
-   }
+  @get("/register")
+  Register(req, res) {
+    res.json({ msg: "Register" });
+  }
 
-   @action('post', '/msg')
-   foo(req, res) {
-      res.json({msg: "this.msg"});
-   }
-
+  @get("/home")
+  Home(req, res) {
+    res.json({ msg: this.home.home() });
+  }
 }
-
 
 /* The NodeJS Framework for Smart Back-End
  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -30,4 +38,4 @@ export default class RoutesController {
 | |              | || |              | || |              | || |              | || |              | |
 | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-Author : S.Katheeskumar [https://katheesh.github.io]*/ 
+Author : S.Katheeskumar [https://katheesh.github.io]*/
