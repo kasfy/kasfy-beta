@@ -24,6 +24,7 @@ export default class AuthController {
   	}
 
   	signin(req, res) {
+
   		return res.render("auth/login", {"msg": "sample message"});
   	}
 
