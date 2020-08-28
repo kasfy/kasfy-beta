@@ -1,32 +1,33 @@
-import {action, get} from "../config/routes";
-
+import { action, get } from "../config/routes";
 import HomeController from "../app/controllers/HomeController";
 
-export default class RoutesController {
+export default class WebController {
 
+  	constructor() {
+    	this.home = new HomeController();
+  	}
 
-   @get('/')
-   index(req, res) {
-      res.render("welcome");
-   }
+  	@get("/")
+  	welcome(req, res) {
+  		this.home.welcome(req, res);
+  	}
 
-   @get('/login')
-   index(req, res) {
-      res.json({msg: "login"});
-   }
+  	@get("/login")
+  	Login(req, res) {
+    	res.json({ msg: "login" });
+  	}
 
-   @get('/register')
-   index(req, res) {
-      res.json({msg: "register"});
-   }
+  	@get("/register")
+  	Register(req, res) {
+    	res.json({ msg: "Register" });
+  	}
 
-   @action('post', '/msg')
-   foo(req, res) {
-      res.json({msg: "this.msg"});
-   }
-
+  	@get("/home")
+  	Home(req, res) {
+    	//res.json({ msg: this.home.home() });
+    	res.render(this.home.home());
+  	}
 }
-
 
 /* The NodeJS Framework for Smart Back-End
  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
@@ -40,4 +41,4 @@ export default class RoutesController {
 | |              | || |              | || |              | || |              | || |              | |
 | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-Author : S.Katheeskumar [https://katheesh.github.io]*/ 
+Author : S.Katheeskumar [https://katheesh.github.io]*/

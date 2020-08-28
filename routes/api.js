@@ -5,7 +5,7 @@ export default class ApiController {
    constructor() {
       this.msg = 'bar';
    }
- 
+
    @get('/')
    index(req, res) {
       res.json( {msg: this.msg} );
