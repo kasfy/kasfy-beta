@@ -1,4 +1,17 @@
-/* The NodeJS Framework for Smart Back-End
+<%- include('../layout/header.ejs') %>
+<br>
+<form id='login-form' action="/signin" method='post'>
+  <div class="box">
+    <center><h2>Login here</h2></center>
+    <input type="text" placeholder="Username" id="username" name="email" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <button type='submit'>Login</button>
+    <strong><%=msg%></strong>
+  </div>
+  <center><a href="/register"><label for='form-switch'>Are you new? Register Here</label></a></center>
+</form>
+
+<!-- /* The NodeJS Framework for Smart Back-End
    ▄█   ▄█▄    ▄████████    ▄████████    ▄████████ ▄██   ▄   
   ███ ▄███▀   ███    ███   ███    ███   ███    ███ ███   ██▄ 
   ███▐██▀     ███    ███   ███    █▀    ███    █▀  ███▄▄▄███ 
@@ -7,42 +20,4 @@
   ███▐██▄     ███    ███          ███   ███        ███   ███ 
   ███ ▀███▄   ███    ███    ▄█    ███   ███        ███   ███ 
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
-  ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
-
-import { action, get, post, put } from "../config/routes";
-
-import HomeController from "../app/controllers/HomeController";
-import AuthController from "../app/controllers/auth/AuthController";
-
-export default class WebController {
-
-	constructor() {
-		this.home = new HomeController();
-		this.auth = new AuthController();
-	}
-
-	@get("/")
-	welcome(req, res) {
-		this.home.welcome(req, res);
-	}
-
-	@get("/login")
-	Login(req, res) {
-		this.auth.login(req, res);
-	}
-
-	@get("/register")
-	Register(req, res) {
-		this.auth.register(req, res);
-	}
-
-	@post("/signin")
-	Signin(req, res) { 
-		this.auth.signin(req, res);
-	}
-
-	@post("/signup")
-	Signup(req, res) {
-
-	}
-}
+  ▀ Author : S.Katheeskumar [https://katheesh.github.io] */ -->

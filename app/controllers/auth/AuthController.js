@@ -9,40 +9,22 @@
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
   ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
 
-import { action, get, post, put } from "../config/routes";
+export default class AuthController {
 
-import HomeController from "../app/controllers/HomeController";
-import AuthController from "../app/controllers/auth/AuthController";
+  	constructor() {
+    	//this.foo = "bar";
+  	}
 
-export default class WebController {
+  	login(req, res) {
+    	return res.render("auth/login", {"msg": ""});
+  	} 
 
-	constructor() {
-		this.home = new HomeController();
-		this.auth = new AuthController();
-	}
+  	register(req, res) {
+    	return res.render("auth/register", {"msg": "sample message"});
+  	}
 
-	@get("/")
-	welcome(req, res) {
-		this.home.welcome(req, res);
-	}
+  	signin(req, res) {
+  		return res.render("auth/login", {"msg": "sample message"});
+  	}
 
-	@get("/login")
-	Login(req, res) {
-		this.auth.login(req, res);
-	}
-
-	@get("/register")
-	Register(req, res) {
-		this.auth.register(req, res);
-	}
-
-	@post("/signin")
-	Signin(req, res) { 
-		this.auth.signin(req, res);
-	}
-
-	@post("/signup")
-	Signup(req, res) {
-
-	}
 }
