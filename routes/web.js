@@ -1,22 +1,21 @@
-import {action, get} from "../config/routes";
+import { action, get, post, put } from "../config/routes";
 
 import HomeController from "../app/controllers/HomeController";
 
 export default class RoutesController {
 
-
    @get('/')
    index(req, res) {
-      res.render("welcome");
+     	res.render("welcome");
    }
 
    @get('/login')
-   index(req, res) {
+   login(req, res) {
       res.json({msg: "login"});
    }
 
    @get('/register')
-   index(req, res) {
+   register(req, res) {
       res.json({msg: "register"});
    }
 
