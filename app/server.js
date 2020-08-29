@@ -11,7 +11,8 @@
 
 import express from "express";
 import env from "dotenv";
-import bodyParser   from 'body-parser';
+import bodyParser   from "body-parser";
+import session  from "express-session";
 import { routes } from "../config/routes";
 
 import api from "../routes/api";
@@ -20,13 +21,19 @@ import web from "../routes/web";
 // Create our Express application
 var app = express();
 
-var port = process.env.PORT || 5050;
+var port = process.env.PORT || 5050 || 5050 + 1 ;
 
 var publix = __dirname.substring(0, __dirname.length - 3) + "public";
 
 const middlewares = [
-  express.static(publix),
-  bodyParser.urlencoded({ extended: true }),
+  	express.static(publix),
+  	bodyParser.urlencoded({ extended: true }),
+  	bodyParser.json(),
+  	session({
+		secret: 'secret',
+		resave: true,
+		saveUninitialized: true
+	})
 ];
 
 app.use(middlewares);
