@@ -9,10 +9,12 @@
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
   ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
 
+import mysqlConnection from '../../../config/mysqlConnection';
+
 export default class AuthController {
 
   	constructor() {
-    	//this.foo = "bar";
+    	this.mysql = new mysqlConnection();
   	}
 
   	login(req, res) {
@@ -24,17 +26,26 @@ export default class AuthController {
   	}
 
   	async signin(req, res) {
-  		return res.render("auth/login", {
-		    data: req.body, // { email, password }
-		    errors: {
-		      	email: {
-		        	msg: 'A message is required'
-		      	},
-		      	password: {
-		        	msg: 'That email doesn‘t look right'
-		      	}
-		    }
-		});
+  		var email = req.body.email;
+		var password = req.body.password;
+
+		if (email && password) {
+
+			
+		} else {
+			return res.render("auth/login", {
+			    data: req.body, // { email, password }
+			    errors: {
+			      	email: {
+			        	msg: 'Email is required'
+			      	},
+			      	password: {
+			        	msg: 'Password is required'
+			      	}
+			    }
+			});
+		}
+  		
   	}
 
   	async signup(req, res) {
@@ -42,13 +53,13 @@ export default class AuthController {
 		    data: req.body, // { email, password }
 		    errors: {
 		      	email: {
-		        	msg: 'A message is required'
+		        	msg: 'Email is required'
 		      	},
 		      	name: {
-		        	msg: 'That email doesn‘t look right'
+		        	msg: 'Name is required'
 		      	},
 		      	password: {
-		        	msg: 'That email doesn‘t look right'
+		        	msg: 'Password is required'
 		      	}
 		    }
 		});
