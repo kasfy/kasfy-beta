@@ -11,12 +11,14 @@
 
 export default class HomeController {
 
-  	constructor() {
-    	//this.foo = "bar";
-  	}
+	constructor() {
 
-  	welcome(req, res) {
-  		return res.render("welcome", {"msg": "sample message"});
-  	}
+  	this.msg = "The NodeJS Framework for Smart Back-End";
+	}
+
+	welcome(req, res) {
+    
+		return res.render("welcome", {"msg": this.msg});
+	}
 
 }
