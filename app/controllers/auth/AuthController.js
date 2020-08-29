@@ -9,14 +9,60 @@
   ███   ▀█▀   ███    █▀   ▄████████▀    ███         ▀█████▀  
   ▀ Author : S.Katheeskumar [https://katheesh.github.io] */
 
-export default class HomeController {
+import mysqlConnection from '../../../config/mysqlConnection';
+
+export default class AuthController {
 
   	constructor() {
-    	//this.foo = "bar";
+    	this.mysql = new mysqlConnection();
   	}
 
-  	welcome(req, res) {
-  		return res.render("welcome", {"msg": "sample message"});
+  	login(req, res) {
+    	return res.render("auth/login", {errors:{email:{msg:''},password:{msg:''}}});
+  	} 
+
+  	register(req, res) {
+    	return res.render("auth/register", {errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
+  	}
+
+  	async signin(req, res) {
+  		var email = req.body.email;
+		var password = req.body.password;
+
+		if (email && password) {
+
+			
+		} else {
+			return res.render("auth/login", {
+			    data: req.body, // { email, password }
+			    errors: {
+			      	email: {
+			        	msg: 'Email is required'
+			      	},
+			      	password: {
+			        	msg: 'Password is required'
+			      	}
+			    }
+			});
+		}
+  		
+  	}
+
+  	async signup(req, res) {
+  		return res.render("auth/register", {
+		    data: req.body, // { email, password }
+		    errors: {
+		      	email: {
+		        	msg: 'Email is required'
+		      	},
+		      	name: {
+		        	msg: 'Name is required'
+		      	},
+		      	password: {
+		        	msg: 'Password is required'
+		      	}
+		    }
+		});
   	}
 
 }
