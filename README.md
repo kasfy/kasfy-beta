@@ -23,7 +23,7 @@ For questions and support please use [Discord forum](https://discord.gg/TUnwSru)
 
 ## Issues
 
-Please make sure to read the [Issue Reporting Checklist](https://github.com/kasfy/kasfy/.github/CONTRIBUTING.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
+Please make sure to read the [Issue Reporting Checklist](https://github.com/kasfy/kasfy/blob/master/.github/CONTRIBUTING.md) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
 
 ## Changelog
 
@@ -31,7 +31,7 @@ Detailed changes for each release are documented in the [release notes](https://
 
 ## Contribution
 
-Please make sure to read the [Contributing Guide](https://github.com/kasfy/kasfy/.github/CONTRIBUTING.md) before making a pull request. If you have a Kasfy-related project/tool, add it with a pull request to [this curated list](https://github.com/kasfy/kasfy)!
+Please make sure to read the [Contributing Guide](https://github.com/kasfy/kasfy/blob/master/.github/CONTRIBUTING.md) before making a pull request. If you have a Kasfy-related project/tool, add it with a pull request to [this curated list](https://github.com/kasfy/kasfy)!
 
 Thank you to all the people who already contributed to Kasfy!
 
