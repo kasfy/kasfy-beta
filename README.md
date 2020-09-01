@@ -1,13 +1,13 @@
 <p align="center"><a href="https://kasfy.github.io" target="_blank" rel="noopener noreferrer"><img width="300" src="https://raw.githubusercontent.com/kasfy/assets/master/images/kasfy-small.png" alt="logo"></a></p>
 
-<p align="center">
-    [![GitHub stars](https://img.shields.io/github/stars/kasfy/kasfy)](https://github.com/kasfy/kasfy/stargazers)
-    [![GitHub contributors](https://img.shields.io/github/contributors/kasfy/kasfy)](https://github.com/kasfy/kasfy/graphs/contributors)
-    [![GitHub repo size](https://img.shields.io/github/repo-size/kasfy/kasfy)](https://github.com/kasfy)
-    [![GitHub issues](https://img.shields.io/github/issues/kasfy/kasfy)](https://github.com/kasfy/kasfy/issues)
-    [![GitHub release (latest by date)](https://img.shields.io/github/v/release/kasfy/kasfy)](https://github.com/kasfy/kasfy/releases)
-    [![GitHub last commit](https://img.shields.io/github/last-commit/kasfy/kasfy)](https://github.com/kasfy/kasfy/commits/master)
-</p>
+
+[![GitHub stars](https://img.shields.io/github/stars/kasfy/kasfy)](https://github.com/kasfy/kasfy/stargazers)
+[![GitHub contributors](https://img.shields.io/github/contributors/kasfy/kasfy)](https://github.com/kasfy/kasfy/graphs/contributors)
+[![GitHub repo size](https://img.shields.io/github/repo-size/kasfy/kasfy)](https://github.com/kasfy)
+[![GitHub issues](https://img.shields.io/github/issues/kasfy/kasfy)](https://github.com/kasfy/kasfy/issues)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/kasfy/kasfy)](https://github.com/kasfy/kasfy/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/kasfy/kasfy)](https://github.com/kasfy/kasfy/commits/master)
+
 
 <h2 align="center">Supporting Kasfy</h2>
 
