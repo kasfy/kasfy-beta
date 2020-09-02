@@ -36,6 +36,11 @@ export default class WebController {
 		this.auth.register(req, res);
 	}
 
+	@get("/home")
+	Home(req, res) {
+		this.auth.home(req, res);
+	}
+
 	@action('post', '/login')
    	Signin(req, res) {
         this.auth.signin(req, res);

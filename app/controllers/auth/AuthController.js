@@ -25,28 +25,24 @@ export default class AuthController {
     	return res.render("auth/register", {errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
   	}
 
+  	home(req, res) {
+  		return res.render("home");
+  	}
+
   	async signin(req, res) {
   		var email = req.body.email;
 		var password = req.body.password;
 
 		if (email && password) {
 
-			if (this.mysql.login(req, email, password)) {
-				
-				return res.render("home");
+			this.mysql.login(req, res, email, password);
+
+			/*if (this.mysql.login(req, email, password)) {
+
 
 			} else {
-				return res.render("auth/login", {
-				    errors: {
-				      	email: {
-				        	msg: 'Incorrect Email or Password'
-				      	},
-				      	password: {
-				        	msg: 'Incorrect Email or Password'
-				      	}
-				    }
-				});
-			}
+				
+			}*/
 
 		} else {
 			return res.render("auth/login", {

@@ -18,10 +18,7 @@ export default class mysqlConnection {
 		this.user     = 'root';
 		this.password = '123456';
 		this.database = 'test';
-		this.connection;
-	}
 
-	connection() {
 		this.connection = mysql.createConnection({
 			host     : this.host,
 			user     : this.user,
@@ -37,20 +34,33 @@ export default class mysqlConnection {
 		});
 	}
 
-	async login(req, email, password){
+	async login(req, res, email, password){
 
-		this.connection();
+		//this.connection();
 
 		this.connection.query('SELECT * FROM users WHERE email = ? AND password = ?', 
 			[email, password], function(error, results, fields) {
-			if (results.length > 0) {
-				req.session.loggedin = true;
-				req.session.username = email;
-
-				return true;
+			if (results.length == 1) {
+				//req.session.loggedin = true;
+				//req.session.username = email;
+				console.log("record fetched success ... \n");
+				//return {"status" :true, "code": 200};
+				return res.redirect("/home");
+				//return res.render("home");
 
 			} else {
-				return false
+				//console.log("record fetching failed ... \n");
+				//return false;
+				return res.render("auth/login", {
+				    errors: {
+				      	email: {
+				        	msg: 'Incorrect Email or Password'
+				      	},
+				      	password: {
+				        	msg: 'Incorrect Email or Password'
+				      	}
+				    }
+				});
 			}			
 		});
 	}
