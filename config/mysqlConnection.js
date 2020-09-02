@@ -30,14 +30,14 @@ export default class mysqlConnection {
 		});
 		this.connection.connect(function(err){
 			if(!err) {
-			    console.log("Database is connected ... nn");
+			    console.log("Database is connected ... \n");
 			} else {
-			    console.log("Error connecting database ... nn");
+			    console.log("Error connecting database ... \n\n");
 			}
 		});
 	}
 
-	login(req, email, password){
+	async login(req, email, password){
 
 		this.connection();
 

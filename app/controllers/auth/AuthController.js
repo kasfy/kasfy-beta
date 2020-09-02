@@ -31,7 +31,23 @@ export default class AuthController {
 
 		if (email && password) {
 
-			
+			if (this.mysql.login(req, email, password)) {
+				
+				return res.render("home");
+
+			} else {
+				return res.render("auth/login", {
+				    errors: {
+				      	email: {
+				        	msg: 'Incorrect Email or Password'
+				      	},
+				      	password: {
+				        	msg: 'Incorrect Email or Password'
+				      	}
+				    }
+				});
+			}
+
 		} else {
 			return res.render("auth/login", {
 			    data: req.body, // { email, password }
