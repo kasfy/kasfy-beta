@@ -177,8 +177,12 @@
 	  <input class="menu-btn" type="checkbox" id="menu-btn" />
 	  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 	  <ul class="menu">
-	    <li><a href="/login">Login</a></li>
-	    <li><a href="/register">Register</a></li>
+	  	<%if(req.session.loggedin == true) { %>
+	  		<li><a href="/logout">Logout</a></li>
+	  	<% } else { %>
+	    	<li><a href="/login">Login</a></li>
+	    	<li><a href="/register">Register</a></li>
+	    <% } %>
 	  </ul>
 	</header>
 

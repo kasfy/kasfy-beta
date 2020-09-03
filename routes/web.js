@@ -41,6 +41,11 @@ export default class WebController {
 		this.auth.home(req, res);
 	}
 
+	@get("/logout")
+	Logout(req, res) {
+		this.auth.logout(req, res);
+	}
+
 	@action('post', '/login')
    	Signin(req, res) {
         this.auth.signin(req, res);

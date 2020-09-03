@@ -18,15 +18,24 @@ export default class AuthController {
   	}
 
   	login(req, res) {
-    	return res.render("auth/login", {errors:{email:{msg:''},password:{msg:''}}});
+    	return res.render("auth/login", {req: req, errors:{email:{msg:''},password:{msg:''}}});
   	} 
 
   	register(req, res) {
-    	return res.render("auth/register", {errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
+    	return res.render("auth/register", {req: req,errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
   	}
 
   	home(req, res) {
-  		return res.render("home");
+  		if(req.session.loggedin == true) {
+  			return res.render("home", {req: req});
+  		} else {
+  			return res.redirect("/");
+  		}
+  	}
+
+  	logout(req, res) {
+  		req.session.destroy();
+  		return res.redirect("/");
   	}
 
   	async signin(req, res) {
@@ -39,13 +48,13 @@ export default class AuthController {
 
 			/*if (this.mysql.login(req, email, password)) {
 
-
 			} else {
 				
 			}*/
 
 		} else {
 			return res.render("auth/login", {
+				req: req,
 			    data: req.body, // { email, password }
 			    errors: {
 			      	email: {
@@ -62,6 +71,7 @@ export default class AuthController {
 
   	async signup(req, res) {
   		return res.render("auth/register", {
+  			req: req,
 		    data: req.body, // { email, password }
 		    errors: {
 		      	email: {

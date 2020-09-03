@@ -36,13 +36,11 @@ export default class mysqlConnection {
 
 	async login(req, res, email, password){
 
-		//this.connection();
-
 		this.connection.query('SELECT * FROM users WHERE email = ? AND password = ?', 
 			[email, password], function(error, results, fields) {
 			if (results.length == 1) {
-				//req.session.loggedin = true;
-				//req.session.username = email;
+				req.session.loggedin = true;
+				req.session.username = email;
 				console.log("record fetched success ... \n");
 				//return {"status" :true, "code": 200};
 				return res.redirect("/home");

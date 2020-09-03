@@ -18,7 +18,7 @@ export default class HomeController {
 
 	welcome(req, res) {
     
-		return res.render("welcome", {"msg": this.msg});
+		return res.render("welcome", {req: req, "msg": this.msg});
 	}
 
 }
