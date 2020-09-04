@@ -22,7 +22,7 @@ export default class AuthController {
   	} 
 
   	register(req, res) {
-    	return res.render("auth/register", {req: req,errors:{email:{msg:''},name:{msg:''},password:{msg:''}}});
+    	return res.render("auth/register", {req: req,errors:{email:{msg:''},username:{msg:''},password:{msg:''}}});
   	}
 
   	home(req, res) {

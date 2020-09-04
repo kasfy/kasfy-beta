@@ -1,6 +1,6 @@
 <%- include('../layout/header.ejs') %>
 <br>
-<form id='register-form' action="" method='post'>
+<form id='register-form' action="/register" method='post'>
   <div class="box">
     <center><h2>Register here</h2></center>
     <input type="text" placeholder="Username" name="username" id="username" required><%= errors.username.msg %>

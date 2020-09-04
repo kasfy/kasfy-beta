@@ -65,18 +65,40 @@ export default class mysqlConnection {
 
 	async register(req, res, username, email, password){
 
-		this.connection.query('INSERT INTO users VALUES (?, ?, ?);', 
+		this.connection.query('INSERT INTO users VALUES (NULL, ?, ?, ?, NULL);', 
 			[username, email, password], function(error, results, fields) {
-			if (!error) {
-
-				req.session.loggedin = true;
+			if (error) {
+				console.log("Error: " + error);
+				return res.render("auth/register", {
+					req: req,
+				    errors: {
+				      	username: {
+				        	msg: error
+				      	},
+				      	email: {
+				        	msg: error
+				      	},
+				      	password: {
+				        	msg: error
+				      	}
+				    }
+				});
+			}
+			if (results) {
+    			req.session.loggedin = true;
 				req.session.username = email;
 
 				return res.redirect("/home");
+			}
+				
 
-			} else {
+			/*} else {
 				return res.render("auth/register", {
+					req: req,
 				    errors: {
+				      	username: {
+				        	msg: 'check Email or Password'
+				      	},
 				      	email: {
 				        	msg: 'check Email or Password'
 				      	},
@@ -85,7 +107,7 @@ export default class mysqlConnection {
 				      	}
 				    }
 				});
-			}			
+			}*/			
 		});
 	}
 }
