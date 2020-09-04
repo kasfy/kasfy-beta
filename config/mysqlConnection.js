@@ -89,25 +89,7 @@ export default class mysqlConnection {
 				req.session.username = email;
 
 				return res.redirect("/home");
-			}
-				
-
-			/*} else {
-				return res.render("auth/register", {
-					req: req,
-				    errors: {
-				      	username: {
-				        	msg: 'check Email or Password'
-				      	},
-				      	email: {
-				        	msg: 'check Email or Password'
-				      	},
-				      	password: {
-				        	msg: 'check Email or Password'
-				      	}
-				    }
-				});
-			}*/			
+			}	
 		});
 	}
 }
