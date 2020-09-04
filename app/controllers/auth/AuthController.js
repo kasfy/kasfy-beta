@@ -39,52 +39,57 @@ export default class AuthController {
   	}
 
   	async signin(req, res) {
+
   		var email = req.body.email;
-		var password = req.body.password;
+		  var password = req.body.password;
 
-		if (email && password) {
+  		if (email && password) {
 
-			this.mysql.login(req, res, email, password);
+  			this.mysql.login(req, res, email, password);
 
-			/*if (this.mysql.login(req, email, password)) {
-
-			} else {
-				
-			}*/
-
-		} else {
-			return res.render("auth/login", {
-				req: req,
-			    data: req.body, // { email, password }
-			    errors: {
-			      	email: {
-			        	msg: 'Email is required'
-			      	},
-			      	password: {
-			        	msg: 'Password is required'
-			      	}
-			    }
-			});
-		}
+  		} else {
+  			return res.render("auth/login", {
+  				req: req,
+  			    data: req.body, // { email, password }
+  			    errors: {
+  			      	email: {
+  			        	msg: 'Email is required'
+  			      	},
+  			      	password: {
+  			        	msg: 'Password is required'
+  			      	}
+  			    }
+  			});
+  		}
   		
   	}
 
   	async signup(req, res) {
-  		return res.render("auth/register", {
-  			req: req,
-		    data: req.body, // { email, password }
-		    errors: {
-		      	email: {
-		        	msg: 'Email is required'
-		      	},
-		      	name: {
-		        	msg: 'Name is required'
-		      	},
-		      	password: {
-		        	msg: 'Password is required'
-		      	}
-		    }
-		});
+
+      var email = req.body.email;
+      var username = req.body.username;
+      var password = req.body.password;
+
+      if (email && username && password) {
+
+        this.mysql.register(req, res, username, email, password);
+
+      } else {
+    		return res.render("auth/register", {
+    			req: req,
+  		    errors: {
+  		      	email: {
+  		        	msg: 'Email is required'
+  		      	},
+  		      	username: {
+  		        	msg: 'Name is required'
+  		      	},
+  		      	password: {
+  		        	msg: 'Password is required'
+  		      	}
+  		    }
+  		  });
+      }
   	}
 
 }

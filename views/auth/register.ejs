@@ -3,9 +3,9 @@
 <form id='register-form' action="" method='post'>
   <div class="box">
     <center><h2>Register here</h2></center>
-    <input type="text" placeholder="Username" required><%= errors.name.msg %>
-    <input type="email" placeholder="Email" required><%= errors.email.msg %>
-    <input type="password" placeholder="Password" required><%= errors.password.msg %>
+    <input type="text" placeholder="Username" name="username" id="username" required><%= errors.username.msg %>
+    <input type="email" placeholder="Email" name="email" id="email" required><%= errors.email.msg %>
+    <input type="password" placeholder="Password" name="password" id="password" required><%= errors.password.msg %>
     <input type="password" placeholder="Re Password" required>
     <button type='submit'>Register</button>
   </div>
