@@ -1,0 +1,8 @@
+{
+	"name": "visitors",
+  	"primary": "id",
+  	"fields": {
+    	"ip": "string",
+    	"timestamp": "timestamp",
+  	},
+}
