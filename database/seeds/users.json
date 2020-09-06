@@ -1,0 +1,8 @@
+{
+	"to": "users",
+  	"data": {
+    	"name": "John",
+    	"email": "John@email.com",
+    	"password" : "testme"
+  	},
+}

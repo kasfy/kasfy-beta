@@ -31,11 +31,16 @@ function readFiles(dirname, onFileContent, onError) {
 
 var pathx = __dirname.substring(0, __dirname.length - 6) + "database/migrations/";
 
-console.log(pathx);
-var data = {};
-readFiles(pathx, function(filename, content) {
-  data[filename] = content;
-  console.log(data);
-}, function(err) {
-  throw err;
+//console.log(pathx);
+const files = fs.readdirSync(pathx);
+
+files.forEach(file => {
+  fs.readFile(pathx + file, 'utf-8', function(err, content) {
+    if (err) {
+      onError(err);
+      return;
+    }
+    console.log(file);
+    console.log(content);
+  });
 });

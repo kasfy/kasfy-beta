@@ -1,5 +1,5 @@
 {
-	"name": "kasfy",
+	"name": "users",
   	"primary": "id",
   	"fields": {
     	"name": "string",
