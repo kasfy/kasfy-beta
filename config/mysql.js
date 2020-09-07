@@ -11,13 +11,18 @@
   
 import mysql  from "mysql";
 
+import dotenv from "dotenv";
+
+dotenv.config({ silent: process.env.NODE_ENV === 'production' });
+
 export default class mysqlConnection {
 
 	constructor() {
-		this.host     = 'localhost';
-		this.user     = 'root';
-		this.password = '123456';
-		this.database = 'test';
+
+		this.host     = process.env.DB_HOST;
+		this.user     = process.env.DB_USER;
+		this.password = process.env.DB_PASS;
+		this.database = process.env.DB_NAME;
 
 		this.connection = mysql.createConnection({
 			host     : this.host,
@@ -25,11 +30,12 @@ export default class mysqlConnection {
 			password : this.password,
 			database : this.database
 		});
+		
 		this.connection.connect(function(err){
 			if(!err) {
-			    console.log("Database is connected ... \n");
+			    console.log("\n\t✅ Database is connected ... \n");
 			} else {
-			    console.log("Error connecting database ... \n\n");
+			    console.log("\n\t❌ Connecting error to the database ... \n\n");
 			}
 		});
 	}

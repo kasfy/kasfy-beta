@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon node ./node_modules/babel-cli/bin/babel-node.js server.js",
-    "migrate": "node ./config/migration.js"
+    "migrate": "node ./config/migrate.js",
+    "migrate:fresh": "node ./config/migrate:fresh.js"
   },
   "author": "S.Katheeskumar [https://katheesh.github.io]",
   "license": "ISC",

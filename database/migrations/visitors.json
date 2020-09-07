@@ -2,7 +2,7 @@
 	"name": "visitors",
   	"primary": "id",
   	"fields": {
-    	"ip": "string",
-    	"timestamp": "timestamp",
-  	},
+    	"ip": "varchar(255) UNIQUE",
+    	"timestamp": "timestamp"
+  	}
 }
