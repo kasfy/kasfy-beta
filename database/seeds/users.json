@@ -1,8 +1,7 @@
 {
-	"to": "users",
-  	"data": {
-    	"name": "John",
-    	"email": "John@email.com",
-    	"password" : "testme"
-  	},
+	"to_seed": "users",
+  	"data": [ 
+  		{ "id": null, "name": "John", "email": "john@email.com", "password" : "john" },
+  		{ "id": null, "name": "Doe", "email": "doe@email.com", "password" : "doe" }
+  	]
 }
