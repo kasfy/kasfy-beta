@@ -56,6 +56,6 @@ app.set("view engine", "ejs");
 // Start the server
 app.listen(port, (err) => {
 	console.log(
-		"🌍 kasfy development server started on http://127.0.0.1:" + port
+		"\n🌍 kasfy development server started on http://127.0.0.1:" + port + "\n"
 	);
 });
