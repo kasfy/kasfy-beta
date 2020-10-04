@@ -1,8 +1,8 @@
 {
 	"name": "visitors",
-  	"primary": "id",
-  	"fields": {
-    	"ip": "varchar(255) UNIQUE",
-    	"timestamp": "timestamp"
+	"primary": "id",
+	"fields": {
+		"ip": "varchar(255) UNIQUE",
+		"timestamp": "timestamp"
   	}
 }
