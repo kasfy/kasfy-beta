@@ -1,0 +1,14 @@
+name: Mirroring
+
+on: [push, delete]
+
+jobs:
+  to_gitlab:
+    runs-on: ubuntu-18.04
+    steps:
+        - uses: actions/checkout@v1
+        - uses: spyoungtech/mirror-action@master
+          with:
+            REMOTE: 'https://gitlab.com/kasfy/kasfy.git'
+            GIT_USERNAME: katheesh
+            GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
