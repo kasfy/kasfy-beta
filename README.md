@@ -43,5 +43,5 @@ Thank you to all the people who already contributed to Kasfy!
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2020, Katheesh
+Copyright (c) 2021, Katheesh
 
