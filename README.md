@@ -19,7 +19,7 @@ Kasfy is an MIT-licensed open source project with its ongoing development made p
 
 ## Documentation
 
-To check out [live examples](https://kasfy.heroku.app/) and docs, visit [kasfy.github.io](https://kasfy.github.io).
+To check out docs, visit [kasfy.js.org](https://kasfy.js.org).
 
 ## Questions
 
